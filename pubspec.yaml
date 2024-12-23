@@ -91,3 +91,9 @@ flutter:
     - family: Marcellus
       fonts:
         - asset: assets/fonts/Marcellus-Regular.ttf
+    - family: Caveat
+      fonts:
+        - asset: assets/fonts/Caveat-VariableFont_wght.ttf
+
+  assets:
+    - assets/icon.png

@@ -96,4 +96,4 @@ flutter:
         - asset: assets/fonts/Caveat-VariableFont_wght.ttf
 
   assets:
-    - assets/icon.png
+    - assets/images/icon.png

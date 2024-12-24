@@ -8,7 +8,7 @@ class NavigationBarWeb extends StatelessWidget implements PreferredSizeWidget {
       leading: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Image.asset(
-          'assets/logo.png',
+          'assets/images/icon.png',
           fit: BoxFit.contain,
         ),
       ),

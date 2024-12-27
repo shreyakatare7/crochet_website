@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../nav_bar.dart';
+import '../footer.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,155 +24,126 @@ class MyApp extends StatelessWidget {
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: NavigationBarWeb(),
       body: Container(
         color: const Color(0xFFFDF3DD),
+        width: double.infinity,
+        height: double.infinity,
         child: SingleChildScrollView(
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(height: 16),
-                  Text(
-                    'Welcome to CrochetForLife!',
-                    style: TextStyle(
-                      fontFamily: 'Marcellus',
-                      fontSize: 16,
-                      letterSpacing: 2,
-                      color: Colors.black,
-                    ),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: 16),
+                Text(
+                  'Welcome to CrochetForLife!',
+                  style: TextStyle(
+                    fontFamily: 'Marcellus',
+                    fontSize: screenWidth * 0.04, // Responsive font size
+                    letterSpacing: 2,
+                    color: Colors.black,
                   ),
-                  SizedBox(height: 16),
-                  Text(
-                    '“Learn to crochet useful objects at your own pace.”',
-                    style: TextStyle(
-                      fontFamily: 'Marcellus',
-                      fontSize: 16,
-                      letterSpacing: 2,
-                      color: Colors.black,
-                    ),
+                ),
+                SizedBox(height: 16),
+                Text(
+                  '“Learn to crochet useful objects at your own pace.”',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: 'Marcellus',
+                    fontSize: screenWidth * 0.04,
+                    letterSpacing: 2,
+                    color: Colors.black,
                   ),
-                  SizedBox(height: 32),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                ),
+                SizedBox(height: 32),
+                Wrap(
+                  alignment: WrapAlignment.center,
+                  spacing: screenWidth * 0.05,
+                  runSpacing: screenHeight * 0.02,
+                  children: [
+                    _responsiveButton('Learn the Basics', screenWidth, () {}),
+                    _responsiveButton('Browse Patterns', screenWidth, () {}),
+                    _responsiveButton('Contact Me', screenWidth, () {}),
+                  ],
+                ),
+                SizedBox(height: 32),
+                Container(
+                  width: screenWidth * 0.8, // Adjust width dynamically
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFD6E8F7),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  padding: EdgeInsets.all(screenWidth * 0.03),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      ElevatedButton(
-                        onPressed: () {
-
-                        },
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFFCAAACD),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 20,
-                              vertical: 12,
-                            ),
-                            textStyle: TextStyle(
-                              fontFamily: 'Caveat',
-                              fontSize: 16,
-                              color: const Color(0xFFFDF3DD),
-                            )
+                      Text(
+                        'Featured Patterns',
+                        style: TextStyle(
+                          fontFamily: 'Marcellus',
+                          fontSize: screenWidth * 0.045,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
                         ),
-                        child: Text('Learn the Basics'),
                       ),
-                      SizedBox(width: 200),
-                      ElevatedButton(
-                        onPressed: () {
-
-                        },
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFFCAAACD),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
+                      SizedBox(height: screenHeight * 0.02),
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            FeaturedPattern(
+                              imagePath: 'assets/design1.png',
+                              title: 'Pattern 1',
                             ),
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 20,
-                              vertical: 12,
+                            SizedBox(width: screenWidth * 0.05),
+                            FeaturedPattern(
+                              imagePath: 'assets/design2.png',
+                              title: 'Pattern 2',
                             ),
-                            textStyle: TextStyle(
-                              fontFamily: 'Caveat',
-                              fontSize: 16,
-                              color: const Color(0xFFFDF3DD),
-                            )
+                            SizedBox(width: screenWidth * 0.05),
+                            FeaturedPattern(
+                              imagePath: 'assets/design3.png',
+                              title: 'Pattern 3',
+                            ),
+                          ],
                         ),
-                        child: Text('Browse Patterns'),
-                      ),
-                      SizedBox(width: 200),
-                      ElevatedButton(
-                        onPressed: () {
-
-                        },
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFFCAAACD),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 20,
-                              vertical: 12,
-                            ),
-                            textStyle: TextStyle(
-                              fontFamily: 'Caveat',
-                              fontSize: 16,
-                              color: const Color(0xFFFDF3DD),
-                            )
-                        ),
-                        child: Text('Contact Me'),
                       ),
                     ],
                   ),
-                  SizedBox(height: 32),
-                  Container(
-                    width: 760,
-                    color: const Color(0xFFD6E8F7),
-                    padding: EdgeInsets.all(16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Featured Patterns',
-                          style: TextStyle(
-                            fontFamily: 'Marcellus',
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-                        ),
-                        SizedBox(height: 20),
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              FeaturedPattern(
-                                imagePath: 'assets/design1.png',
-                                title: 'Pattern 1',
-                              ),
-                              SizedBox(width: 100),
-                              FeaturedPattern(
-                                imagePath: 'assets/design2.png',
-                                title: 'Pattern 2',
-                              ),
-                              SizedBox(width: 100),
-                              FeaturedPattern(
-                                imagePath: 'assets/design3.png',
-                                title: 'Pattern 3',
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            )
+                ),
+              ],
+            ),
+          ),
         ),
       ),
+    );
+  }
+
+  Widget _responsiveButton(String text, double screenWidth, VoidCallback onPressed) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color(0xFFCAAACD),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        padding: EdgeInsets.symmetric(
+          horizontal: screenWidth * 0.05,
+          vertical: screenWidth * 0.02,
+        ),
+        textStyle: TextStyle(
+          fontFamily: 'Caveat',
+          fontSize: screenWidth * 0.04,
+          color: const Color(0xFFFDF3DD),
+        ),
+      ),
+      child: Text(text),
     );
   }
 }
@@ -184,11 +156,13 @@ class FeaturedPattern extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Column(
       children: [
         Container(
-          width: 120,
-          height: 120,
+          width: screenWidth * 0.2,
+          height: screenWidth * 0.2,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -201,7 +175,7 @@ class FeaturedPattern extends StatelessWidget {
         Text(
           title,
           style: TextStyle(
-            fontSize: 14,
+            fontSize: screenWidth * 0.035,
             fontWeight: FontWeight.bold,
             color: Colors.black,
           ),

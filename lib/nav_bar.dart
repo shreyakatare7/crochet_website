@@ -10,6 +10,8 @@ class NavigationBarWeb extends StatelessWidget implements PreferredSizeWidget {
         child: Image.asset(
           'assets/images/icon.png',
           fit: BoxFit.contain,
+          width: 148,
+          height: 148,
         ),
       ),
       flexibleSpace: Row(

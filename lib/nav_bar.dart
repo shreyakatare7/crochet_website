@@ -1,4 +1,9 @@
+import 'package:crochet_website/pages/about.dart';
 import 'package:flutter/material.dart';
+import 'package:crochet_website/pages/basics.dart';
+import 'package:crochet_website/pages/contact.dart';
+import 'package:crochet_website/pages/patterns.dart';
+import 'package:crochet_website/main.dart';
 
 class NavigationBarWeb extends StatelessWidget implements PreferredSizeWidget {
   @override
@@ -17,11 +22,21 @@ class NavigationBarWeb extends StatelessWidget implements PreferredSizeWidget {
       flexibleSpace: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          TextButton(onPressed: () {}, child: Text('CrochetForLife', style: TextStyle(fontFamily: 'Marcellus', fontSize: 14, color: const Color(0xFFFDF3DD)))),
-          TextButton(onPressed: () {}, child: Text('About', style: TextStyle(fontFamily: 'Marcellus', fontSize: 14, color: const Color(0xFFFDF3DD)))),
-          TextButton(onPressed: () {}, child: Text('Basics', style: TextStyle(fontFamily: 'Marcellus', fontSize: 14, color: const Color(0xFFFDF3DD)))),
-          TextButton(onPressed: () {}, child: Text('Patterns', style: TextStyle(fontFamily: 'Marcellus', fontSize: 14, color: const Color(0xFFFDF3DD)))),
-          TextButton(onPressed: () {}, child: Text('Contact', style: TextStyle(fontFamily: 'Marcellus', fontSize: 14, color: const Color(0xFFFDF3DD)))),
+          TextButton(onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+          }, child: Text('CrochetForLife', style: TextStyle(fontFamily: 'Marcellus', fontSize: 14, color: const Color(0xFFFDF3DD)))),
+          TextButton(onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => About()));
+          }, child: Text('About', style: TextStyle(fontFamily: 'Marcellus', fontSize: 14, color: const Color(0xFFFDF3DD)))),
+          TextButton(onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Basics()));
+          }, child: Text('Basics', style: TextStyle(fontFamily: 'Marcellus', fontSize: 14, color: const Color(0xFFFDF3DD)))),
+          TextButton(onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Patterns()));
+          }, child: Text('Patterns', style: TextStyle(fontFamily: 'Marcellus', fontSize: 14, color: const Color(0xFFFDF3DD)))),
+          TextButton(onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Contact()));
+          }, child: Text('Contact', style: TextStyle(fontFamily: 'Marcellus', fontSize: 14, color: const Color(0xFFFDF3DD)))),
           Align(
             alignment: Alignment.centerRight,
             child: Container(
@@ -35,9 +50,7 @@ class NavigationBarWeb extends StatelessWidget implements PreferredSizeWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: Center(
                   child: TextField(
-                    onChanged: (value) {
-                      debugPrint('Search: $value'); // Replace with actual search logic
-                    },
+                    onChanged: (value) {},
                     decoration: const InputDecoration(
                       hintText: 'Search',
                       hintStyle: TextStyle(color: Color(0xFFCB962E)),

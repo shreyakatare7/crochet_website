@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:crochet_website/main.dart';
+
 class FooterWeb extends StatelessWidget{
   @override
   Widget build(BuildContext context){
@@ -9,37 +11,45 @@ class FooterWeb extends StatelessWidget{
       child: Column(
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              ElevatedButton(onPressed: () {}, child: Text('Homepage', style: TextStyle(fontFamily: 'Marcellus', fontSize: 14, color: const Color(0xFFFDF3DD)))),
+              TextButton(onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+              }, child: Text('Homepage', style: TextStyle(fontFamily: 'Marcellus', fontSize: 14, color: const Color(0xFFFDF3DD)))),
               SizedBox(width: 20),
-              VerticalDivider(
-                color: Color(0xFFFDF3DD),
-                thickness: 2,
-                width: 20,
+              Container(
+                width: 1,
+                height: 50,
+                color: Colors.white,
+                margin: EdgeInsets.symmetric(horizontal: 16),
               ),
-              Text(
-                'Contact Me',
-                  style: TextStyle(
-                  fontFamily: 'Marcellus',
-                  color: Color(0xFFFDF3DD),
-                    fontSize: 14,
+              Column(
+                children: [
+                  Text(
+                    'Contact Me',
+                    style: TextStyle(
+                      fontFamily: 'Marcellus',
+                      color: Color(0xFFFDF3DD),
+                      fontSize: 14,
+                    ),
                   ),
-              ),
-              SizedBox(height: 10),
-              Text(
-                'email: shreyakatare6@gmail.com',
-                style: TextStyle(
-                  fontFamily: 'Marcellus',
-                  color: Color(0xFFFDF3DD),
-                  fontSize: 14,
-                ),
+                  SizedBox(height: 10),
+                  Text(
+                    'email: shreyakatare6@gmail.com',
+                    style: TextStyle(
+                      fontFamily: 'Marcellus',
+                      color: Color(0xFFFDF3DD),
+                      fontSize: 14,
+                    ),
+                  ),
+                ]
               ),
               SizedBox(width: 20),
-              VerticalDivider(
-                color: Color(0xFFFDF3DD),
-                thickness: 2,
-                width: 20,
+              Container(
+                width: 1,
+                height: 50,
+                color: Colors.white,
+                margin: EdgeInsets.symmetric(horizontal: 16),
               ),
               Text(
                 '© 2024 CrochetForLife',

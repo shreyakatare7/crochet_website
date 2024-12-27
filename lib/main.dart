@@ -1,3 +1,6 @@
+import 'package:crochet_website/pages/basics.dart';
+import 'package:crochet_website/pages/contact.dart';
+import 'package:crochet_website/pages/patterns.dart';
 import 'package:flutter/material.dart';
 import '../nav_bar.dart';
 import '../footer.dart';
@@ -10,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
       title: 'CrochetForLife',
       theme: ThemeData(
         primaryColor: const Color(0xFFCB962E),
@@ -66,9 +69,15 @@ class HomePage extends StatelessWidget {
                   spacing: screenWidth * 0.05,
                   runSpacing: screenHeight * 0.02,
                   children: [
-                    _responsiveButton('Learn the Basics', screenWidth, () {}),
-                    _responsiveButton('Browse Patterns', screenWidth, () {}),
-                    _responsiveButton('Contact Me', screenWidth, () {}),
+                    _responsiveButton('Learn the Basics', screenWidth, () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Basics()));
+                    }),
+                    _responsiveButton('Browse Patterns', screenWidth, () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Patterns()));
+                    }),
+                    _responsiveButton('Contact Me', screenWidth, () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Contact()));
+                    }),
                   ],
                 ),
                 SizedBox(height: 32),
@@ -117,6 +126,8 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                 ),
+                SizedBox(height: 32),
+                FooterWeb(),
               ],
             ),
           ),

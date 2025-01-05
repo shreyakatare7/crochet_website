@@ -26,7 +26,7 @@ class NavigationBarWeb extends StatelessWidget implements PreferredSizeWidget {
             Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
           }, child: Text('CrochetForLife', style: TextStyle(fontFamily: 'Marcellus', fontSize: 14, color: const Color(0xFFFDF3DD)))),
           TextButton(onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => About()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => AboutPage()));
           }, child: Text('About', style: TextStyle(fontFamily: 'Marcellus', fontSize: 14, color: const Color(0xFFFDF3DD)))),
           TextButton(onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) => Basics()));
